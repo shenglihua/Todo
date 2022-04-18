@@ -1,0 +1,47 @@
+<div class="toDolist">
+  <p class="title">To Do List </p>
+  <ul>
+    <li>
+      <input type="text" name="" id="" [(ngModel)]="inputVal">
+      <button (click)="addTodo()">添加</button>
+    </li>
+  </ul>
+  <ul>
+    <!-- <li *ngFor="let item of filterTodos; let key=index">
+      <input type="checkbox" [ngModel]="item.isFinish" (click)="changeState($event, key)">
+      <span>{{item.title}}</span>
+      <span (click)="delMatters(key)">❌</span>
+    </li> -->
+    <li *ngFor="let todo of filterTodos let key=index">
+      <app-new-todo [todo]='todo' [key]='key' (childDelMatters)='delMatters($event)'
+        (childChangeState)='changeState($event)'>
+      </app-new-todo>
+    </li>
+  </ul>
+  <ul>
+    <span>task num {{todoList.length}}</span>
+    <span (click)="changeFilter(-1)">所有</span>
+    <span (click)="changeFilter(0)">未完成</span>
+    <span (click)="changeFilter(1)">已经完成</span>
+  </ul>
+</div>
+
+<!-- const parent = {
+delMatters: function() {}
+}
+
+const child = {}
+child.childDelMatters = parent.delMatters
+
+child.childDelMatters() -> parent.delMatters() // this -> child
+
+const child = {}
+child.childDelMatters = new EventEmitter()
+child.childDelMatters.emit(todo)
+
+
+document.addEventListener('click', (e) => {})
+
+child.addEventListener('childDelMatters', (e) => {
+parent.delMatters(e)
+}) -->

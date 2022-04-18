@@ -1,0 +1,3 @@
+ <input type="checkbox" [ngModel]="todo.isFinish" (click)="changeState($event, key)">
+ <span>{{todo.title}}</span>
+ <span (click)="delTodo(key)">❌</span>

@@ -1,0 +1,16 @@
+li {
+  padding: 10px 50px 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    width: 20px;
+    height: 20px;
+  }
+
+  span:nth-child(2) {
+    flex: 1;
+    padding-left: 10px;
+  }
+}
